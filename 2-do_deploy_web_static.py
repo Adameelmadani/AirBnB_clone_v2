@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This is our model"""
+from fabric.decorators import task
 from fabric.operations import local
 import os
 from datetime import datetime
@@ -9,6 +10,7 @@ from fabric.api import *
 env.hosts = ['100.25.164.203', '54.90.3.135']
 
 
+@task
 def do_pack():
     """pack html files"""
     if not os.path.exists('versions'):
@@ -22,6 +24,7 @@ def do_pack():
     return (None)
 
 
+@task
 def do_deploy(archive_path):
     """deploy archive file"""
     if not os.path.exists(archive_path):
