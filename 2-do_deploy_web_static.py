@@ -31,7 +31,7 @@ def do_deploy(archive_path):
         return(False)
     try:
         put(archive_path, '/tmp/')
-        filename = archive_path.split("/")[1].split(".tgz")[0]
+        filename = archive_path.split("/")[-1].split(".tgz")[0]
         cmd1 = 'tar -xzf /tmp/{}.tgz -C /data/web_static/releases\
                 /{}/'.format(filename, filename)
         run('mkdir -p /data/web_static/releases/{}/'.format(filename))
