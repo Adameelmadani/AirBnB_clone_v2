@@ -33,6 +33,7 @@ def c_text(text):
     text2 = "C " + text.replace("_", " ")
     return text2
 
+
 @app.route('/python/')
 @app.route('/python/<text>')
 def python_text(text='is cool'):
