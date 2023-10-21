@@ -15,6 +15,7 @@ def hello():
     This is the root page
     """
     return 'Hello HBNB!'
+
 @app.route('/hbnb')
 def hbnb():
     """
