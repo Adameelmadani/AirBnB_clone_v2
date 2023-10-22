@@ -6,6 +6,7 @@ from flask import Flask
 from flask import render_template
 from models import storage
 from models.state import State
+from os import getenv
 
 app = Flask(__name__)
 
@@ -18,7 +19,8 @@ def states_list():
     Returns html page of states list
     """
     states = storage.all('State').values()
-    return render_template('8-cities_by_states.html', states=states)
+    s = getenv("HBNB_TYPE_STORAGE")
+    return render_template('8-cities_by_states.html', states=states, storage_t=s)
 
 
 @app.teardown_appcontext
