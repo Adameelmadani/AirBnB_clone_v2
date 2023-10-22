@@ -17,8 +17,9 @@ def states_list():
     """
     Returns html page of states list
     """
-    return render_template('7-states_list.html',
-            states=storage.all('State').values())
+    states = storage.all('State').values()
+    return render_template('7-states_list.html', states=states)
+
 
 @app.teardown_appcontext
 def teardown(exception):
